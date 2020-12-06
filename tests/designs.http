@@ -1,0 +1,93 @@
+### Read all designs : GET /design
+GET http://localhost:3000/designs
+
+### Create a design without authorization : POST /design
+POST http://localhost:3000/designs
+Content-Type: application/json
+
+{
+    "id": 1,
+    "images": "ADDbase64",
+    "description": "ADDSuper design",
+    "feature": "ADDListe des features",
+    "imageIncluded": "true",
+    "videoIncluded": "false",
+    "firstName": "ADDfirstName",
+    "lastName": "ADDLastName",
+    "contact": "04687973201",
+    "facebook": "ADDurl facebook",
+    "email": "ADDemail@mail.com",
+    "instagram": "ADDurl insta",
+    "linkedin": "ADDurl linkedin"
+}
+
+### Create a design with an authorization : JWT OK but for an unauthorized user (me)
+### a. Register a user : POST /auths/register
+POST http://localhost:3000/auths/register
+Content-Type: application/json
+
+{
+    "username":"me",
+    "password":"Me"
+}
+### b.Define a variable & Login a user : POST /auths/login
+# @name login
+POST http://localhost:3000/auths/login
+Content-Type: application/json
+
+{
+    "username":"me",
+    "password":"Me"
+}
+### c. get the token from previous request
+@meToken = {{login.response.body.token}}
+POST http://localhost:3000/designs
+Content-Type: application/json
+Authorization: {{meToken}}
+
+{
+    "id": 1,
+    "images": "ADDbase64",
+    "description": "ADDSuper design",
+    "feature": "ADDListe des features",
+    "imageIncluded": "true",
+    "videoIncluded": "false",
+    "firstName": "ADDfirstName",
+    "lastName": "ADDlastName",
+    "facebook": "ADDurl facebook",
+    "email": "ADDemail@mail.com",
+    "instagram": "ADDurl insta",
+    "linkedin": "ADDurl linkedin"
+}
+
+### Create a design with the only authorized account : designadmin
+### a. Register a user : not needed as the account already exists
+### b.Define a variable & Login a user : POST /auths/login
+# @name login
+POST http://localhost:3000/auths/login
+Content-Type: application/json
+
+{
+    "username":"designAdmin",
+    "password":"DesignAdmin"
+}
+### c. get the token from previous request
+@adminToken = {{login.response.body.token}}
+POST http://localhost:3000/designs
+Content-Type: application/json
+Authorization: {{adminToken}}
+
+{
+    "id": 1,
+    "images": "ADDbase64",
+    "description": "ADDSuper design",
+    "feature": "ADDListe des features",
+    "imageIncluded": "true",
+    "videoIncluded": "false",
+    "firstName": "ADDfirstName",
+    "lastName": "ADDlastName",
+    "facebook": "ADDurl facebook",
+    "email": "ADDemail@mail.com",
+    "instagram": "ADDurl insta",
+    "linkedin": "ADDurl linkedin"
+}

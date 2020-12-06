@@ -1,0 +1,30 @@
+### Register a user : POST /auths/register
+POST http://localhost:3000/auths/register
+Content-Type: application/json
+
+{
+    "username":"me",
+    "password":"Me"
+}
+
+### Define a variable & Login a user : POST /auths/login
+# @name login
+POST http://localhost:3000/auths/login
+Content-Type: application/json
+
+{
+    "username":"me",
+    "password":"Me"
+}
+### get the token from previous request
+@meToken = {{login.response.body.token}}
+
+### Read all user accounts (protected operation by JWT)
+### Only authenticated user account have access (any user)
+GET http://localhost:3000/auths/users
+Authorization: {{meToken}}
+
+### Try to read all user accounts (protected operation by JWT) without right JWT
+### Only authenticated user account have access (any user)
+GET http://localhost:3000/auths/users
+Authorization: wrong authorization
