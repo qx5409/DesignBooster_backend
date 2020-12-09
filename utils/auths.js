@@ -19,7 +19,7 @@ const authorize = (req, res, next) => {
   Get token from authorization header */
   let token = req.get("authorization");
 
-  // Step3 : improvement by using JWT
+
   if (!token) return res.status(401).send("You are not authenticated.");
 
   jwt.verify(token, jwtSecret, (err, token) => {

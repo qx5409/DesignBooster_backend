@@ -5,6 +5,7 @@ const jwtSecret = "secretDesign";
 const LIFETIME_JWT = 24 * 60 * 60 * 1000; // in seconds // 24 * 60 * 60 * 1000 = 24h
 const { users, authorize } = require("../utils/auths");
 
+
 /* Register a user : POST /auths/register */
 router.post("/register", function (req, res, next) {
   const newUser = {
@@ -17,7 +18,6 @@ router.post("/register", function (req, res, next) {
     token: "Future signed token",
   };
 
-  // step3 : improve our token with JWT : create a JWT
   jwt.sign(
     { username: authenticatedUser.username }, // session data in the payload
     jwtSecret, // secret used for the signature
@@ -47,7 +47,6 @@ router.post("/login", function (req, res, next) {
     token: "Future signed token",
   };
 
-  // step3 : improve our token with JWT : create a JWT
   jwt.sign(
     { username: authenticatedUser.username }, // session data in the payload
     jwtSecret, // secret used for the signature

@@ -4,6 +4,7 @@ const jwt = require("jsonwebtoken");
 const listDesign = [
   {
     id: 1,
+    name: "name",
     images: "base64",
     description: "Super design",
     feature: "Liste des features",
@@ -32,7 +33,6 @@ router.post("/", function (req, res, next) {
   Get token from authorization header */
   let token = req.get("authorization");
 
-  // Step3 : improvement by using JWT
   if (!token) return res.status(401).send("You are not authenticated.");
 
   jwt.verify(token, jwtSecret, (err, token) => {
@@ -41,6 +41,7 @@ router.post("/", function (req, res, next) {
       return res.status(403).send("You are not authorized.");
     const newDesign = {
       id: listDesign.length + 1,
+      name: req.body.name,
       title: req.body.title,
       content: req.body.content,
       images: req.body.images,

@@ -1,5 +1,5 @@
 {
-  "name": "DesignBooster",
+  "name": "designbooster",
   "version": "0.0.0",
   "private": true,
   "scripts": {
@@ -15,5 +15,8 @@
   },
   "author": {
     "name": "groupe15"
+  },
+  "sources": {
+    "based": "remédiation from 'Modern web development with JS and Node'"
   }
 }
