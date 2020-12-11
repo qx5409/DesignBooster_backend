@@ -57,4 +57,16 @@ router.post("/login", function (req, res, next) {
   });
 });
 
+
+/* GET user object from username */
+router.get("/:username", function (req, res, next) {
+  console.log("GET users/:username", req.params.username);
+  const userFound = User.getUserFromList(req.params.username);
+  if (userFound) {
+    return res.json(userFound);
+  } else {
+    return res.status(404).send("ressource not found");
+  }
+});
+
 module.exports = router;
