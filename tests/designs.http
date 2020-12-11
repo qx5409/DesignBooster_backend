@@ -24,20 +24,22 @@ Content-Type: application/json
 
 ### Create a design with an authorization : JWT OK but for an unauthorized user (me)
 ### a. Register a user : POST /auths/register
-POST http://localhost:3000/auths/register
+POST http://localhost:3000/users/register
 Content-Type: application/json
 
 {
     "username":"me",
+    "email":"me",
     "password":"Me"
 }
 ### b.Define a variable & Login a user : POST /auths/login
 # @name login
-POST http://localhost:3000/auths/login
+POST http://localhost:3000/users/login
 Content-Type: application/json
 
 {
     "username":"me",
+    "email":"me",
     "password":"Me"
 }
 ### c. get the token from previous request
@@ -66,11 +68,12 @@ Authorization: {{meToken}}
 ### a. Register a user : not needed as the account already exists
 ### b.Define a variable & Login a user : POST /auths/login
 # @name login
-POST http://localhost:3000/auths/login
+POST http://localhost:3000/users/login
 Content-Type: application/json
 
 {
     "username":"designAdmin",
+    "email": "admin@mail.com",
     "password":"DesignAdmin"
 }
 ### c. get the token from previous request
