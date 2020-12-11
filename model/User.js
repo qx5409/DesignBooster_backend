@@ -2,7 +2,7 @@
 const bcrypt = require("bcrypt");
 const saltRounds = 10;
 const myPlaintextPassword = "145OkyayNo668Pass";
-const FILE_PATH = __dirname + "/users.json";
+const FILE_PATH = __dirname + "/../data/users.json";
 
 class User {
   constructor(username, email, password) {

@@ -1,5 +1,5 @@
 ### Read all designs : GET /design
-GET http://localhost:3000/users/:username
+GET http://localhost:3000/designs
 
 ### Create a design without authorization : POST /design
 POST http://localhost:3000/designs
