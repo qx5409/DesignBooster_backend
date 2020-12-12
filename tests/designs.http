@@ -92,8 +92,8 @@ Authorization: {{adminToken}}
     "videoIncluded": "false",
     "firstName": "ADDfirstName",
     "lastName": "ADDlastName",
-    "facebook": "ADDurl facebook",
+    "facebook": "ADDurl_facebook",
     "email": "ADDemail@mail.com",
-    "instagram": "ADDurl insta",
-    "linkedin": "ADDurl linkedin"
+    "instagram": "ADDurl_insta",
+    "linkedin": "ADDurl_linkedin"
 }
